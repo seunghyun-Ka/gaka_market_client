@@ -4,29 +4,8 @@
   padding: 0;
 }
 
-#header {
-  height: 64px;
-  border-bottom: 1px solid gray;
-  /* 
-  중앙으로 맞추는건데 아래 헤더 아레아 부분 대신 했기 때문에 지워도 됨
-  display: flex;
-  justify-content: center; 
-  */
-}
 
-#body {
-  /* 바디는 다 차지해야 하므로 부모 높이 다 채움 */
-  /* vh는 부모으 크기 따라가지 않고 윈도우 크기 따라감 */
-  height: 100vh;
-  /* 바디 부분은 가운데 정렬 자식이 부모 기준으로 정렬 */
-  width: 1024px;
-  margin: 0 auto;
-}
 
-#footer {
-  height: 200px;
-  background-color: gray;
-}
 
 #banner {
   height: 300px;

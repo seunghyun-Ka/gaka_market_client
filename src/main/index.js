@@ -26,44 +26,37 @@ function MainPage() {
     // 여기선 div로 씌워줘야함 크게
     return (
         <div>
-            <div id="header">
-                <div id="header_area">
-                    <img src="images/icons/logo.png" />
-                </div>
+            <div id="banner">
+                <img src="images/banners/banner1.png" />
             </div>
-            <div id="body">
-                <div id="banner">
-                    <img src="images/banners/banner1.png" />
-                </div>
-                <h1>판매되는 상품들</h1>
-                <div id="product_list">
-                    {/* 리엑트 사용위해 jsx문법 사용 */}
-                    {
-                        // map은 함수를 순회함 순회하면서 div태그들을 리턴해줌 위에 리엑트[]가 빈칸이면 0번 순회
-                        products.map(function (product, index) {
-                            return (
-                                <div className="product_card">
-                                    {/* 카드 누르면 페이지 이동              템플릿 리터럴*/}
-                                    <Link className="product_link" to={`products/${index}`}>
-                                        <div>
-                                            <img className="product_img" src={product.imageUrl} />
+            <h1>판매되는 상품들</h1>
+            <div id="product_list">
+                {/* 리엑트 사용위해 jsx문법 사용 */}
+                {
+                    // map은 함수를 순회함 순회하면서 div태그들을 리턴해줌 위에 리엑트[]가 빈칸이면 0번 순회
+                    products.map(function (product, index) {
+                        return (
+                            <div className="product_card">
+                                {/* 카드 누르면 페이지 이동              템플릿 리터럴*/}
+                                <Link className="product_link" to={`products/${product.id}`}>
+                                    <div>
+                                        <img className="product_img" src={product.imageUrl} />
+                                    </div>
+                                    <div className="product_contents">
+                                        <span className="product_name"> {product.name} </span>
+                                        <span className="product_price"> {product.price}원 </span>
+                                        <div className="product_seller">
+                                            <img className="product_avatar" src="images/icons/avatar.png" />
+                                            <span>{product.seller}</span>
                                         </div>
-                                        <div className="product_contents">
-                                            <span className="product_name"> {product.name} </span>
-                                            <span className="product_price"> {product.price}원 </span>
-                                            <div className="product_seller">
-                                                <img className="product_avatar" src="images/icons/avatar.png" />
-                                                <span>{product.seller}</span>
-                                            </div>
-                                        </div>
-                                    </Link>
-                                </div>
-                            )
-                        })
-                    }
-                </div>
+                                    </div>
+                                </Link>
+                            </div>
+                        )
+                    })
+                }
             </div>
-            <div id="footer"></div>
+
         </div>
     )
 }
