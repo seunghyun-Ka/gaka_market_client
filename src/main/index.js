@@ -1,7 +1,8 @@
-// css가져오기 npm install axios 통신 라이브러리
+// css가져오기 npm install axios 통신 라이브러리 npm install react-router-dom
 import './index.css';
 import axios from "axios"
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 function MainPage() {
     // 리엑트 사용 프로덕트는 배열이기 때문에 빈 배열 사용
@@ -42,17 +43,20 @@ function MainPage() {
                         products.map(function (product, index) {
                             return (
                                 <div className="product_card">
-                                    <div>
-                                        <img className="product_img" src={product.imageUrl} />
-                                    </div>
-                                    <div className="product_contents">
-                                        <span className="product_name"> {product.name} </span>
-                                        <span className="product_price"> {product.price}원 </span>
-                                        <div className="product_seller">
-                                            <img className="product_avatar" src="images/icons/avatar.png" />
-                                            <span>{product.seller}</span>
+                                    {/* 카드 누르면 페이지 이동              템플릿 리터럴*/}
+                                    <Link className="product_link" to={`products/${index}`}>
+                                        <div>
+                                            <img className="product_img" src={product.imageUrl} />
                                         </div>
-                                    </div>
+                                        <div className="product_contents">
+                                            <span className="product_name"> {product.name} </span>
+                                            <span className="product_price"> {product.price}원 </span>
+                                            <div className="product_seller">
+                                                <img className="product_avatar" src="images/icons/avatar.png" />
+                                                <span>{product.seller}</span>
+                                            </div>
+                                        </div>
+                                    </Link>
                                 </div>
                             )
                         })

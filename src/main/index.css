@@ -16,7 +16,8 @@
 
 #body {
   /* 바디는 다 차지해야 하므로 부모 높이 다 채움 */
-  height: 100%;
+  /* vh는 부모으 크기 따라가지 않고 윈도우 크기 따라감 */
+  height: 100vh;
   /* 바디 부분은 가운데 정렬 자식이 부모 기준으로 정렬 */
   width: 1024px;
   margin: 0 auto;
@@ -107,4 +108,11 @@
 .product_avatar {
   /* 위스만 줘도 비율따라감 */
   width: 24px;
+}
+
+.product_link{
+  /* 링크 원래 색으로 복원 */
+  color: inherit;
+  /* 밑줄 없애기 */
+  text-decoration: none;
 }
