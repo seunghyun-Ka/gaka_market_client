@@ -1,4 +1,4 @@
-// css가져오기 npm install axios 통신 라이브러리 npm install react-router-dom
+// css가져오기 npm install axios 통신 라이브러리 npm install react-router-dom, npm install antd
 import './index.css';
 import axios from "axios"
 import React from 'react';

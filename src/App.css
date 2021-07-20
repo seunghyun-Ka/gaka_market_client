@@ -1,3 +1,11 @@
+* {
+  /* 자동 마진 생기는거 지워줌 */
+  margin: 0;
+  padding: 0;
+  /* 앤티디 써서 줄 간격 벌어지는거 원상복귀 */
+  line-height: normal;
+}
+
 html,
 body,
 #root,
@@ -11,11 +19,35 @@ body,
  #header {
   height: 64px;
   border-bottom: 1px solid gray;
-  /* 
-  중앙으로 맞추는건데 아래 헤더 아레아 부분 대신 했기 때문에 지워도 됨
-  display: flex;
+  
+  /* 중앙으로 맞추는건데 아래 헤더 아레아 부분 대신 했기 때문에 지워도 됨 */
+  display  : flex;
   justify-content: center; 
-  */
+
+}
+
+#header_area {
+  width: 1024px;
+  height: 100%;
+  /* 헤더부분 가운데로 맞추가 */
+  /* margin: 0 auto; */
+  /* 사진 위아래 중앙에 맞추기 */
+  display: flex;
+  align-items: center;
+  /* 자식들을 양끝으로 배치 */
+  justify-content: space-between;
+}
+
+/* 사진 크기 조정 */
+#header_area img {
+  width: 128px;
+  height: 36px;
+}
+
+/* 배너 이미지 크기 정해주는게 좋다함 */
+#banner > img {
+  width: 100%;
+  height: 300px;
 }
 
 #body {
