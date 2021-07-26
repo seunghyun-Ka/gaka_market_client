@@ -55,7 +55,6 @@
   display: flex;
   /* 사람 이미지 교차축의 중간에 정렬 */
   align-items: center;
-  margin-top: 12px;
 }
 
 .product_avatar {
@@ -68,4 +67,16 @@
   color: inherit;
   /* 밑줄 없애기 */
   text-decoration: none;
+}
+
+.product_footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px; 
+}
+
+.product_date{
+  font-size: 7px;
+  color: rgb(136, 136, 136);
 }

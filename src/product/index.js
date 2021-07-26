@@ -9,9 +9,10 @@ function ProductPage() {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
     useEffect(function () {
-        axios.get(`https://07c58100-cf07-4f11-971b-b140dbfbd7bd.mock.pstmn.io/products/${id}`).then(
+        axios.get(`http://localhost:8080/products/${id}`).then(
             function (result) {
-                setProduct(result.data)
+                //data 다음에 product써줘서 거기 접근한다.
+                setProduct(result.data.product)
             }
         ).catch(function (error) {
             console.error(error);

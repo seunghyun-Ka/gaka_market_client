@@ -3,6 +3,11 @@ import './index.css';
 import axios from "axios"
 import React from 'react';
 import { Link } from 'react-router-dom'
+import dayjs from 'dayjs';
+import relativeTime from "dayjs/plugin/relativeTime"
+import 'dayjs/locale/ko';
+dayjs.extend(relativeTime);
+dayjs.locale('ko');
 
 function MainPage() {
     // 리엑트 사용 프로덕트는 배열이기 때문에 빈 배열 사용
@@ -11,7 +16,7 @@ function MainPage() {
     // 무한반복 없에는 코드 setProducts가 product계속 업뎃시키면서 무한반복함 그거 없애줌
     React.useEffect(
         function () {
-            axios.get("https://07c58100-cf07-4f11-971b-b140dbfbd7bd.mock.pstmn.io/products")
+            axios.get("http://localhost:8080/products")
                 .then(function (result) {
                     const products = result.data.products;
                     // 업데이트 함수
@@ -45,9 +50,12 @@ function MainPage() {
                                     <div className="product_contents">
                                         <span className="product_name"> {product.name} </span>
                                         <span className="product_price"> {product.price}원 </span>
-                                        <div className="product_seller">
-                                            <img className="product_avatar" src="images/icons/avatar.png" />
-                                            <span>{product.seller}</span>
+                                        <div className="product_footer">
+                                            <div className="product_seller">
+                                                <img className="product_avatar" src="images/icons/avatar.png" />
+                                                <span>{product.seller}</span>
+                                            </div>
+                                            <span className="product_date">{dayjs(product.createdAt).fromNow()}</span>
                                         </div>
                                     </div>
                                 </Link>
