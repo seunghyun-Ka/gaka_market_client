@@ -4,12 +4,13 @@ import { useParams } from 'react-router-dom';
 import axios from "axios"
 import { useEffect, useState } from 'react';
 import './index.css';
+import { API_URL } from "../config/constants";
 
 function ProductPage() {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
     useEffect(function () {
-        axios.get(`http://localhost:8080/products/${id}`).then(
+        axios.get(`${API_URL}/products/${id}`).then(
             function (result) {
                 //data 다음에 product써줘서 거기 접근한다.
                 setProduct(result.data.product)

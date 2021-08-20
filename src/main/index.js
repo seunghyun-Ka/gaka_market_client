@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import dayjs from 'dayjs';
 import relativeTime from "dayjs/plugin/relativeTime"
 import 'dayjs/locale/ko';
+import { API_URL } from '../config/constants';
 dayjs.extend(relativeTime);
 dayjs.locale('ko');
 
@@ -16,7 +17,7 @@ function MainPage() {
     // 무한반복 없에는 코드 setProducts가 product계속 업뎃시키면서 무한반복함 그거 없애줌
     React.useEffect(
         function () {
-            axios.get("http://localhost:8080/products")
+            axios.get(`${API_URL}/products`)
                 .then(function (result) {
                     const products = result.data.products;
                     // 업데이트 함수
