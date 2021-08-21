@@ -35,7 +35,7 @@ function MainPage() {
             <div id="banner">
                 <img src="images/banners/banner1.png" />
             </div>
-            <h1>판매되는 상품들</h1>
+            <h1 id="product_headline">판매되는 상품들</h1>
             <div id="product_list">
                 {/* 리엑트 사용위해 jsx문법 사용 */}
                 {
@@ -46,7 +46,7 @@ function MainPage() {
                                 {/* 카드 누르면 페이지 이동              템플릿 리터럴*/}
                                 <Link className="product_link" to={`products/${product.id}`}>
                                     <div>
-                                        <img className="product_img" src={product.imageUrl} />
+                                        <img className="product_img" src={`${API_URL}/${product.imageUrl}`} />
                                     </div>
                                     <div className="product_contents">
                                         <span className="product_name"> {product.name} </span>

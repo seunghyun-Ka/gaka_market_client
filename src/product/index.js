@@ -5,6 +5,8 @@ import axios from "axios"
 import { useEffect, useState } from 'react';
 import './index.css';
 import { API_URL } from "../config/constants";
+// 날자 보기 쉽게
+import dayjs from 'dayjs';
 
 function ProductPage() {
     const { id } = useParams();
@@ -29,7 +31,7 @@ function ProductPage() {
     return (
         <div>
             <div id="image_box">
-                <img src={"/" + product.imageUrl} />
+                <img src={`${API_URL}/${product.imageUrl}`} />
             </div>
             <div id="profile_box">
                 <img src="/images/icons/avatar.png" />
@@ -38,8 +40,9 @@ function ProductPage() {
             <div id="contents_box">
                 <div id="name">{product.name}</div>
                 <div id="price">{product.price}원</div>
-                <div id="createdAt">2021년 7월 19일</div>
-                <div id="description">{product.description}</div>
+                <div id="createdAt">{dayjs(product.createdAt).format('YYYY년 MM월 DD일')}</div>
+                <pre id="description">{product.description}</pre>
+                {/* pre는 줄바꿈 가능 */}
             </div>
         </div>
     );

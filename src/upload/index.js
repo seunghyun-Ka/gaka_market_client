@@ -1,13 +1,33 @@
-import { Button, Divider, Form, Input, InputNumber, Upload } from "antd";
+import { Button, Divider, Form, Input, InputNumber, Upload, message } from "antd";
+import axios from "axios";
 import { useState } from "react";
 import { API_URL } from "../config/constants"
 import "./index.css";
+// 상품 업로드 되면 페이지 이동
+import { useHistory } from "react-router-dom"
 function UploadPage() {
-    const [imageUrl, setImageUrl] = useState(null)
+    const [imageUrl, setImageUrl] = useState(null);
+    const history = useHistory();
     // 람다 상품 업로드에 온서브밋이 여기 밸류로 들감
     const onSubmit = (values) => {
         console.log(values);
-    }
+        axios
+            .post(`${API_URL}/products`, {
+                name: values.name,
+                description: values.description,
+                seller: values.seller,
+                price: parseInt(values.price),
+                imageUrl: imageUrl,
+            })
+            .then((result) => {
+                console.log(result);
+                // 히스토리 푸쉬는 페이지 이동하면 뒤로가기 처럼 리플레이스는 이전페이지의 기록 사라짐
+                history.replace('/')
+            }).catch((error) => {
+                console.error(error);
+                message.error(`애러가 발생했습니다. ${error.message}`)
+            })
+    };
     // 파일이 업로딩 중이면 냅두고 업로드가 완되면 실행
     const onChangeImage = (info) => {
         if (info.file.status === 'uploading') {
