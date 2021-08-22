@@ -62,6 +62,9 @@ function MainPage() {
                     products.map(function (product, index) {
                         return (
                             <div className="product_card">
+                                {
+                                    product.soldout === 1 && <div className="product_blur" />
+                                }
                                 {/* 카드 누르면 페이지 이동              템플릿 리터럴*/}
                                 <Link className="product_link" to={`products/${product.id}`}>
                                     <div>
