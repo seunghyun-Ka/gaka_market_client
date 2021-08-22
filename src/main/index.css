@@ -1,6 +1,13 @@
 
 #banner {
-  height: 300px;
+  max-height: 300px;
+}
+
+
+/* 배너 이미지 크기 정해주는게 좋다함 */
+#banner > img {
+  width: 100%;
+  max-height: 300px;
 }
 
 #body > h1 {
@@ -14,18 +21,6 @@
   margin-top: 12px;
 }
 
-.product_card {
-  width: 180px;
-  height: 300px;
-  margin-right: 12px;
-  margin-bottom: 12px;
-  border-radius: 12px;
-  border: 1px solid rgb(230, 230, 230);
-  /* 맨 앞으로 땡기기 (앞 그림에 가려서 안보일 때) */
-  overflow: hidden;
-  /* 판매된 상품 블러처리 관련 */
-  position: relative;
-}
 
 .product_blur{
   /* 원래 html쓰면 차곡차곡 한줄 씩 먹는데 이거 쓰면 부모만 바라봄 */
@@ -37,6 +32,19 @@
   background-color: #ffffffaa;
   /* 클릭 가능하게 */
   pointer-events: none;
+}
+
+.product_card {
+  width: 180px;
+  height: 300px;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  border: 1px solid rgb(230, 230, 230);
+  /* 맨 앞으로 땡기기 (앞 그림에 가려서 안보일 때) */
+  overflow: hidden;
+  /* 판매된 상품 블러처리 관련 */
+  position: relative;
 }
 
 .product_img {
@@ -94,3 +102,4 @@
 .product_headline{
   margin-top:8px;
 }
+
